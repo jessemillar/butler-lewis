@@ -12,6 +12,14 @@ import (
 )
 
 func ArchiveCard(c echo.Context) error {
+	secret := os.Getenv("DUNN_SECRET")
+
+	// Tiny "security" thing
+	secretQuery := c.QueryParam("secret")
+	if secret != secretQuery {
+		return c.JSON(401, nil)
+	}
+
 	trelloKey := os.Getenv("TRELLO_KEY")
 	trelloToken := os.Getenv("TRELLO_TOKEN")
 	trelloList := "5b1bf0d6b20211b1d693e4a6"
