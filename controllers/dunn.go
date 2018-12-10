@@ -14,7 +14,7 @@ import (
 func ArchiveCard(c echo.Context) error {
 	trelloKey := os.Getenv("TRELLO_KEY")
 	trelloToken := os.Getenv("TRELLO_TOKEN")
-	trelloList = "5b1bf0d6b20211b1d693e4a6"
+	trelloList := "5b1bf0d6b20211b1d693e4a6"
 
 	response, err := http.Get("https://api.trello.com/1/lists/" + trelloList + "/cards?key=" + trelloKey + "&token=" + trelloToken)
 	if err != nil {
