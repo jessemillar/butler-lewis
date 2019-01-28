@@ -19,6 +19,7 @@ func main() {
 
 	e.GET("/health", echo.WrapHandler(http.HandlerFunc(health.Check)))
 	e.PUT("/v1/dunn", controllers.ArchiveCard)
+	e.PUT("/v1/dupes", controllers.KillDupes)
 
 	e.Logger.Fatal(e.Start(":9999"))
 }
