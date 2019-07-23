@@ -22,8 +22,6 @@ func main() {
 	e.PUT("/v1/dunn", controllers.ArchiveCard)
 	e.PUT("/v1/dupes", controllers.KillDupes)
 
-	log.Println(os.Getenv("PORT"))
-
 	// TODO Fail if $PORT is not set
 	e.Logger.Fatal(e.Start(":" + os.Getenv("PORT")))
 }
