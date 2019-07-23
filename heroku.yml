@@ -1,3 +1,4 @@
+# TODO Attempt pushing my image and just pulling it down from Dockerhub
 build:
   docker:
     release:
