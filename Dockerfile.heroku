@@ -1,2 +1,0 @@
-FROM jessemillar/dunn:latest
-CMD ["/app"]
