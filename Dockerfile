@@ -36,16 +36,16 @@ RUN go build \
     -o /app .
 
 # Final stage: the running container.
-FROM scratch AS final
+#FROM scratch AS final
 
 # Import the user and group files from the first stage.
-COPY --from=builder /user/group /user/passwd /etc/
+#COPY --from=builder /user/group /user/passwd /etc/
 
 # Import the Certificate-Authority certificates for enabling HTTPS.
-COPY --from=builder /etc/ssl/certs/ca-certificates.crt /etc/ssl/certs/
+#COPY --from=builder /etc/ssl/certs/ca-certificates.crt /etc/ssl/certs/
 
 # Import the compiled executable from the second stage.
-COPY --from=builder /app /app
+#COPY --from=builder /app /app
 
 # Perform any further action as an unprivileged user.
 USER nobody:nobody
