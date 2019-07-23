@@ -20,18 +20,15 @@ RUN apk add --no-cache git
 # Set the environment variables for the go command:
 # * CGO_ENABLED=0 to build a statically-linked executable
 # * GOFLAGS=-mod=vendor to force `go build` to look into the `/vendor` folder.
-ENV CGO_ENABLED=0 GOFLAGS=-mod=vendor
+ENV CGO_ENABLED=0
 
-# Set the working directory outside $GOPATH to enable the support for modules.
-WORKDIR /src
-
-# Copy the code from the host and compile it
 WORKDIR $GOPATH/src/github.com/jessemillar/dunn
-COPY Gopkg.toml Gopkg.lock ./
-RUN dep ensure --vendor-only
 
 # Import the code from the context.
-COPY ./ ./
+COPY ./ .
+
+# Install versioned dependencies.
+RUN dep ensure --vendor-only
 
 # Build the executable to `/app`. Mark the build as statically linked.
 RUN go build \
@@ -54,5 +51,4 @@ COPY --from=builder /app /app
 USER nobody:nobody
 
 # Run the compiled binary.
-ENTRYPOINT []
-CMD ["./app"]
+CMD ["/app"]
