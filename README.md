@@ -1,6 +1,7 @@
 ## Setup
-You need to set three environment variables:
+You need to set some environment variables:
 ```
+PORT
 TRELLO_KEY
 TRELLO_TOKEN
 DUNN_SECRET
