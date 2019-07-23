@@ -8,8 +8,7 @@ RUN apk add --no-cache git
 # Install the Certificate-Authority certificates to enable HTTPS
 RUN apk add --no-cache ca-certificates
 
-# Set the environment variables for the go command:
-# * CGO_ENABLED=0 to build a statically-linked executable
+# CGO_ENABLED=0 to build a statically-linked executable
 ENV CGO_ENABLED=0
 
 WORKDIR $GOPATH/src/github.com/jessemillar/dunn
