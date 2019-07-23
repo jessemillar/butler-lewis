@@ -1,3 +1,8 @@
+# dunn
+## Overview
+[![CircleCI](https://circleci.com/gh/jessemillar/dunn.svg?style=svg)](https://circleci.com/gh/jessemillar/dunn)
+`dunn` is a small REST API for interacting with Trello boards. There are two endpoints which are documented below. `dunn` also serves as a personal playground for trying out new server, build, and deployment technologies.
+
 ## Setup
 You need to set some environment variables:
 ```
