@@ -21,6 +21,4 @@ FROM scratch
 # Import the Certificate-Authority certificates for enabling HTTPS
 COPY --from=builder /etc/ssl/certs/ca-certificates.crt /etc/ssl/certs/
 COPY --from=builder /app /app
-RUN adduser -D nobody
-USER nobody
 CMD ["/app"]
