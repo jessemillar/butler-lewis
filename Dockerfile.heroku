@@ -1,2 +1,2 @@
 FROM jessemillar/dunn:latest
-CMD ["echo Running"]
+CMD ["/app"]
