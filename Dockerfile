@@ -8,16 +8,13 @@ RUN apk add --no-cache git
 # Install the Certificate-Authority certificates to enable HTTPS
 RUN apk add --no-cache ca-certificates
 
-# CGO_ENABLED=0 to build a statically-linked executable
-ENV CGO_ENABLED=0
-
 WORKDIR $GOPATH/src/github.com/jessemillar/dunn
 COPY ./ .
 RUN dep ensure
-RUN go build -installsuffix 'static' -o /app .
+RUN CGO_ENABLED=0 GOOS=linux go build -a -installsuffix nocgo -o /app .
 
 FROM scratch
 # Import the Certificate-Authority certificates for enabling HTTPS
 COPY --from=builder /etc/ssl/certs/ca-certificates.crt /etc/ssl/certs/
-COPY --from=builder /app /app
-CMD ["/app"]
+COPY --from=builder /app ./
+CMD ["./app"]
