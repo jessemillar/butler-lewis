@@ -54,4 +54,4 @@ COPY --from=builder /app /app
 USER nobody:nobody
 
 # Run the compiled binary.
-ENTRYPOINT ["/app"]
+CMD ["/app"]
