@@ -13,7 +13,7 @@ COPY ./ .
 RUN dep ensure
 RUN CGO_ENABLED=0 GOOS=linux go build -a -installsuffix nocgo -o /app .
 
-FROM scratch
+FROM scratch as production
 # Import the Certificate-Authority certificates for enabling HTTPS
 COPY --from=builder /etc/ssl/certs/ca-certificates.crt /etc/ssl/certs/
 COPY --from=builder /app ./
