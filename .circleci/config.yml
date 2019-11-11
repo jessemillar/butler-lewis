@@ -7,5 +7,5 @@ jobs:
     steps:
       - checkout
       - run: curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sh
-      - run: dep ensure
+      - run: go mod tidy
       - run: go test -v ./...
