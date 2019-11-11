@@ -1,17 +1,14 @@
 # Heroku doesn't seem to fully support multi-stage builds yet
 FROM golang:1.12.7-alpine
 
-# Download and install dep
-ADD https://github.com/golang/dep/releases/download/v0.5.4/dep-linux-amd64 /usr/bin/dep
-RUN chmod +x /usr/bin/dep
-# Install Git so dep works
+# Install Git so `go get` works
 RUN apk add --no-cache git
 # Install the Certificate-Authority certificates to enable HTTPS
 RUN apk add --no-cache ca-certificates
 
 WORKDIR $GOPATH/src/github.com/jessemillar/butler-lewis
 COPY ./ .
-RUN dep ensure
+RUN go mod tidy
 RUN CGO_ENABLED=0 GOOS=linux go build -a -installsuffix nocgo -o /app .
 
 CMD ["/app"]
