@@ -1,6 +1,8 @@
 # Heroku doesn't seem to fully support multi-stage builds yet
 FROM golang:1.12.7-alpine
 
+# Enable Go modules
+ENV GO111MODULE=on
 # Install Git so `go get` works
 RUN apk add --no-cache git
 # Install the Certificate-Authority certificates to enable HTTPS
