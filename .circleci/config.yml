@@ -3,7 +3,7 @@ jobs:
   build:
     docker:
       - image: circleci/golang:1.12.7
-    working_directory: /go/src/github.com/jessemillar/dunn
+    working_directory: /go/src/github.com/jessemillar/butler-lewis
     steps:
       - checkout
       - run: curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sh

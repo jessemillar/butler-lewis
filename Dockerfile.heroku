@@ -9,7 +9,7 @@ RUN apk add --no-cache git
 # Install the Certificate-Authority certificates to enable HTTPS
 RUN apk add --no-cache ca-certificates
 
-WORKDIR $GOPATH/src/github.com/jessemillar/dunn
+WORKDIR $GOPATH/src/github.com/jessemillar/butler-lewis
 COPY ./ .
 RUN dep ensure
 RUN CGO_ENABLED=0 GOOS=linux go build -a -installsuffix nocgo -o /app .

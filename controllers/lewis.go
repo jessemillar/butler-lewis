@@ -7,12 +7,12 @@ import (
 	"net/http"
 	"os"
 
-	"github.com/jessemillar/dunn/models"
+	"github.com/jessemillar/butler-lewis/models"
 	"github.com/labstack/echo"
 )
 
 func ArchiveCard(c echo.Context) error {
-	secret := os.Getenv("DUNN_SECRET")
+	secret := os.Getenv("BUTLER_LEWIS_SECRET")
 
 	// Tiny "security" thing
 	secretQuery := c.QueryParam("secret")

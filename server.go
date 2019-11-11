@@ -5,7 +5,7 @@ import (
 	"net/http"
 	"os"
 
-	"github.com/jessemillar/dunn/controllers"
+	"github.com/jessemillar/butler-lewis/controllers"
 	"github.com/jessemillar/health"
 	"github.com/labstack/echo"
 	"github.com/labstack/echo/middleware"
@@ -19,7 +19,7 @@ func main() {
 	e.Use(middleware.CORS())
 
 	e.GET("/health", echo.WrapHandler(http.HandlerFunc(health.Check)))
-	e.PUT("/v1/dunn", controllers.ArchiveCard)
+	e.PUT("/v1/archive", controllers.ArchiveCard)
 	e.PUT("/v1/dupes", controllers.KillDupes)
 
 	// TODO Fail if $PORT is not set

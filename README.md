@@ -1,8 +1,8 @@
-# dunn
-[![CircleCI](https://circleci.com/gh/jessemillar/dunn.svg?style=svg)](https://circleci.com/gh/jessemillar/dunn)
+
+[![CircleCI](https://circleci.com/gh/jessemillar/butler-lewis.svg?style=svg)](https://circleci.com/gh/jessemillar/butler-lewis)
 
 ## Overview
-`dunn` is a small REST API for interacting with Trello boards. There are two endpoints which are documented below. `dunn` also serves as a personal playground for trying out new server, build, and deployment technologies.
+`butler-lewis` is a small REST API for interacting with Trello boards. There are two endpoints which are documented below. `butler-lewis` also serves as a personal playground for trying out new server, build, and deployment technologies.
 
 ## Setup
 You need to set some environment variables:
@@ -10,14 +10,14 @@ You need to set some environment variables:
 PORT
 TRELLO_KEY
 TRELLO_TOKEN
-DUNN_SECRET
+BUTLER_LEWIS_SECRET
 ```
 
 ## Running
 ### Locally/Manually
 ```
-docker build -t dunn .
-docker run -d -p 9999:9999 -e DUNN_SECRET="blah" -e TRELLO_KEY="12345" -e TRELLO_TOKEN="67890" -e PORT="9999" --restart=always --name dunn dunn
+docker build -t butler-lewis .
+docker run -d -p 9999:9999 -e BUTLER_LEWIS_SECRET="blah" -e TRELLO_KEY="12345" -e TRELLO_TOKEN="67890" -e PORT="9999" --restart=always --name butler-lewis butler-lewis
 ```
 
 ### Heroku
@@ -35,5 +35,5 @@ git push heroku master
 ## Usage
 ```
 HTTP PUT
-localhost:9999/v1/dunn?name=Test test&secret=blah
+localhost:9999/v1/butler-lewis?name=Test test&secret=blah
 ```
