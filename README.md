@@ -1,5 +1,5 @@
-
-[![CircleCI](https://circleci.com/gh/jessemillar/butler-lewis.svg?style=svg)](https://circleci.com/gh/jessemillar/butler-lewis)
+[![CircleCI](https://circleci.com/gh/jessemillar/butler-lewis.svg?style=shield)](https://circleci.com/gh/jessemillar/butler-lewis)
+[![Go Report Card](https://goreportcard.com/badge/github.com/jessemillar/butler-lewis)](https://goreportcard.com/report/github.com/jessemillar/butler-lewis)
 
 ## Overview
 `butler-lewis` is a small REST API for interacting with Trello boards. There are two endpoints which are documented below. `butler-lewis` also serves as a personal playground for trying out new server, build, and deployment technologies.
